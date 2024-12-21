@@ -2,16 +2,23 @@
 using UnityEngine;
 public class ChestView : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start()
+    private IAnimatedChest animatedChest;
+    public ChestView(IAnimatedChest animatedChest)
     {
-
+        this.animatedChest = animatedChest;
+    }
+    public virtual void ShowLocked() {
+        animatedChest.ShowLocked();
+    }
+    public virtual void ShowUnlocked() {
+        animatedChest.ShowUnlocked();
+    }
+    public virtual void ShowOpenAnimation() {
+        animatedChest.PlayOpenAnimation();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartUnlocking()
     {
-
+        animatedChest.ShowUnlocking();
     }
 }
