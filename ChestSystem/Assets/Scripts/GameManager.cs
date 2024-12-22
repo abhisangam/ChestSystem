@@ -8,10 +8,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<ChestSO> chestTypes;
     [SerializeField] private Button addChestSlotButton;
     [SerializeField] private Button addChestButton;
+
+    [SerializeField] private ChestSlotsView chestSlotsView;
+    private ChestSlotsController chestSlotsController;
+
     void Start()
     {
         addChestButton.onClick.AddListener(AddChest);
         addChestSlotButton.onClick.AddListener(AddChestSlot);
+
+        chestSlotsController = new ChestSlotsController(chestSlotsView);
     }
 
     // Update is called once per frame
@@ -22,11 +28,11 @@ public class GameManager : MonoBehaviour
 
     private void AddChestSlot()
     {
-        // Add a new chest slot to the player's inventory
+        chestSlotsController.AddChestSlot();
     }
 
     private void AddChest()
     {
-        // Add a new chest slot
+        chestSlotsController.AddChest(chestTypes[Random.Range(0, chestTypes.Count)]);
     }
 }

@@ -35,8 +35,7 @@ public class ChestSlotsController
 
     private ChestController CreateChest(ChestSO chestSO, int chestSlotID)
     {
-        ChestView chestView = new ChestView(chestSO.AnimatedChest);
-        chestSlotsView.AddChest(chestView, chestSlotID);
+        ChestView chestView = chestSlotsView.AddChest(chestSlotID, chestSO.animatedChestPrefab);
         return new ChestController(chestView, chestSlotID);
     }
 }

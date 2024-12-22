@@ -6,7 +6,13 @@ public class ChestSlotsView : MonoBehaviour
 {
     [SerializeField] private GameObject chestSlotPrefab;
     [SerializeField] private Transform chestSlotsParent;
+    [SerializeField] private ChestView chestPrefab;
     private List<GameObject> chestSlots;
+
+    private void Awake()
+    {
+        chestSlots = new List<GameObject>();
+    }
 
     public void AddChestSlot()
     {
@@ -14,8 +20,11 @@ public class ChestSlotsView : MonoBehaviour
         chestSlots.Add(chestSlot);
     }
 
-    public void AddChest(ChestView chestView, int chestSlotID)
+    public ChestView AddChest(int chestSlotID, AnimatedChest animatedChestPrefab)
     {
-        chestView.transform.parent = chestSlots[chestSlotID].transform;
+        ChestView chestView = Instantiate<ChestView>(chestPrefab, chestSlots[chestSlotID].transform);
+        AnimatedChest animatedhest = Instantiate<AnimatedChest>(animatedChestPrefab, chestView.transform);
+        chestView.transform.SetParent(chestSlots[chestSlotID].transform);
+        return chestView;
     }
 }

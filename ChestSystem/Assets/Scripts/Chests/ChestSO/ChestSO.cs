@@ -13,7 +13,7 @@ public enum ChestType
 public class ChestSO: ScriptableObject
 {
     public ChestType Type;
-    public IAnimatedChest AnimatedChest;
+    public AnimatedChest animatedChestPrefab;
     public float UnlockTime;
     public int CoinRewardRangeMin;
     public int CoinRewardRangeMax;

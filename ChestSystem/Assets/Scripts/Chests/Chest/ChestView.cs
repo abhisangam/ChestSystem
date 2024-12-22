@@ -2,8 +2,13 @@
 using UnityEngine;
 public class ChestView : MonoBehaviour
 {
-    private IAnimatedChest animatedChest;
-    public ChestView(IAnimatedChest animatedChest)
+    private AnimatedCommonChest animatedChest;
+    public ChestView()
+    {
+
+    }
+
+    public void SetAnimatedChest(AnimatedCommonChest animatedChest)
     {
         this.animatedChest = animatedChest;
     }

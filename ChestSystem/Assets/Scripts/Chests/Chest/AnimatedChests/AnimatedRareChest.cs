@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AnimatedCommonChest : AnimatedChest
+public class AnimatedRareChest : AnimatedChest
 {
     [SerializeField] private Image ChestImage;
     [SerializeField] private Sprite LockedSprite;

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad4f3fd13405994fb5f8b791c752a49, type: 3}
+  m_Name: LegendaryChest
+  m_EditorClassIdentifier: 
+  Type: 3
+  animatedChestPrefab: {fileID: 6780474953034425975, guid: 784026172e846b24c9c307ab089f6ef1, type: 3}
+  UnlockTime: 10
+  CoinRewardRangeMin: 100
+  CoinRewardRangeMax: 200
+  GemRewardRangeMin: 10
+  GemRewardRangeMax: 20
