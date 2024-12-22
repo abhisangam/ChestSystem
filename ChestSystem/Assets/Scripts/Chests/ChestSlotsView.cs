@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChestSlotsView : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class ChestSlotsView : MonoBehaviour
     {
         ChestView chestView = Instantiate<ChestView>(chestPrefab, chestSlots[chestSlotID].transform);
         AnimatedChest animatedhest = Instantiate<AnimatedChest>(animatedChestPrefab, chestView.transform);
+        animatedhest.transform.SetAsFirstSibling();
         chestView.transform.SetParent(chestSlots[chestSlotID].transform);
         return chestView;
     }

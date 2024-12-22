@@ -31,11 +31,19 @@ public class ChestSlotsController
         if (index < 0) return;
 
         chestSlots[index] = CreateChest(chestSO, index);
+        chestSlots[index].OnChestClicked += OnChestClicked;
     }
 
     private ChestController CreateChest(ChestSO chestSO, int chestSlotID)
     {
         ChestView chestView = chestSlotsView.AddChest(chestSlotID, chestSO.animatedChestPrefab);
         return new ChestController(chestView, chestSlotID);
+    }
+
+    private void OnChestClicked(int chestSlotID)
+    {
+        //Open chest info popup
+        Debug.Log("Chest clicked: " + chestSlotID);
+
     }
 }

@@ -1,11 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 public class ChestView : MonoBehaviour
 {
+    [SerializeField] private Button chestButton;
     private AnimatedCommonChest animatedChest;
-    public ChestView()
-    {
 
+    public Action OnChestClicked;
+
+    private void Awake()
+    {
+        chestButton.onClick.AddListener(() => OnChestClicked?.Invoke());
     }
 
     public void SetAnimatedChest(AnimatedCommonChest animatedChest)
