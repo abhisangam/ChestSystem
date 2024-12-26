@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Button addChestButton;
 
     [SerializeField] private ChestSlotsView chestSlotsView;
+    [SerializeField] private ChestInfoPopupController chestInfoPopupController;
     private ChestSlotsController chestSlotsController;
 
     void Start()
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
         addChestButton.onClick.AddListener(AddChest);
         addChestSlotButton.onClick.AddListener(AddChestSlot);
 
-        chestSlotsController = new ChestSlotsController(chestSlotsView);
+        chestSlotsController = new ChestSlotsController(chestSlotsView, chestInfoPopupController);
     }
 
     // Update is called once per frame

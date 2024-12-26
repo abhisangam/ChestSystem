@@ -14,7 +14,7 @@ public class ChestSO: ScriptableObject
 {
     public ChestType Type;
     public AnimatedChest animatedChestPrefab;
-    public float UnlockTime;
+    public float UnlockTimeInSeconds;
     public int CoinRewardRangeMin;
     public int CoinRewardRangeMax;
     public int GemRewardRangeMin;
