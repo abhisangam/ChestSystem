@@ -6,27 +6,34 @@ public class ChestSlotsController
 {
     private ChestSlotsView chestSlotsView;
     private ChestInfoPopupController chestInfoPopupController;
+    private ChestRewardPopupController chestRewardPopupController;
     private List<ChestController?> chestSlots;
 
     private ChestCommand? lastComand;
 
-    public ChestSlotsController(ChestSlotsView chestSlotsView, ChestInfoPopupController chestInfoPopupController)
+    public ChestSlotsController
+    (
+        ChestSlotsView chestSlotsView,
+        ChestInfoPopupController chestInfoPopupController,
+        ChestRewardPopupController chestRewardPopupController
+    )
     {
         this.chestSlotsView = chestSlotsView;
         chestSlots = new List<ChestController?>();
 
-        for (int i = 0; i < GameConfig.Instance.InitialChestSlots; i++)
+        for (int i = 0; i < GameService.Instance.GameConfig.InitialChestSlots; i++)
         {
             AddChestSlot();
         }
 
         this.chestInfoPopupController = chestInfoPopupController;
         this.chestInfoPopupController.OnChestAction += OnChestAction;
+        this.chestRewardPopupController = chestRewardPopupController;
     }
 
     public void AddChestSlot()
     {
-        if(chestSlots.Count >= GameConfig.Instance.MaxChestSlots) return;
+        if(chestSlots.Count >= GameService.Instance.GameConfig.MaxChestSlots) return;
         chestSlots.Add(null);
         chestSlotsView.AddChestSlot();
     }
@@ -38,6 +45,7 @@ public class ChestSlotsController
 
         chestSlots[index] = CreateChest(chestSO, index);
         chestSlots[index].OnChestClicked += OnChestClicked;
+        chestSlots[index].OnChestCollected += OnChestCollected;
     }
 
     private ChestController CreateChest(ChestSO chestSO, int chestSlotID)
@@ -92,5 +100,12 @@ public class ChestSlotsController
                 lastComand.Execute();
                 break;
         }
+    }
+
+    private void OnChestCollected(int slotId, int coinReward, int gemReward)
+    {
+        chestRewardPopupController.Show(coinReward, gemReward);
+        chestSlots[slotId].DestroyView();
+        chestSlots[slotId] = null;
     }
 }

@@ -24,8 +24,9 @@ public class ChestSlotsView : MonoBehaviour
     public ChestView AddChest(int chestSlotID, AnimatedChest animatedChestPrefab)
     {
         ChestView chestView = Instantiate<ChestView>(chestPrefab, chestSlots[chestSlotID].transform);
-        AnimatedChest animatedhest = Instantiate<AnimatedChest>(animatedChestPrefab, chestView.transform);
-        animatedhest.transform.SetAsFirstSibling();
+        AnimatedChest animatedChest = Instantiate<AnimatedChest>(animatedChestPrefab, chestView.transform);
+        animatedChest.transform.SetAsFirstSibling();
+        chestView.SetAnimatedChest(animatedChest);
         chestView.transform.SetParent(chestSlots[chestSlotID].transform);
         return chestView;
     }

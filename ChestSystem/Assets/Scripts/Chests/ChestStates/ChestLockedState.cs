@@ -10,6 +10,8 @@ public class ChestLockedState : ChestState
     {
         Debug.Log("Entered Locked State");
         stateMachine.TimeRemaining = owner.ChestSO.UnlockTimeInSeconds;
+        owner.ChestView.HideTimer();
+        owner.ChestView.ShowLocked();
     }
 
     public override void Execute()

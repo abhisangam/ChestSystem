@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   animatedChestPrefab: {fileID: 5613633239718574616, guid: c234f3199eccc1e4da54a14f6c1ab122, type: 3}
-  UnlockTime: 10
+  chestIcon: {fileID: 21300000, guid: 952326841b2574044b1a9a84e17482d0, type: 3}
+  UnlockTimeInSeconds: 10
   CoinRewardRangeMin: 100
   CoinRewardRangeMax: 200
   GemRewardRangeMin: 10

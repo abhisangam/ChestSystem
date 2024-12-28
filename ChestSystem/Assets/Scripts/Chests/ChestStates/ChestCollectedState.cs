@@ -11,6 +11,7 @@ public class ChestCollectedState : ChestState
     {
         // Code to run when entering this state
         Debug.Log("Entered Collected State");
+        owner.ChestView.ShowOpenAnimation();
     }
 
     public override void Execute()

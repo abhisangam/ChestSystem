@@ -10,6 +10,7 @@ public class ChestUnlockedState : ChestState
     {
         // Code to run when entering this state
         Debug.Log("Entered Unlocked State");
+        owner.ChestView.ShowUnlocked();
     }
 
     public override void Execute()
