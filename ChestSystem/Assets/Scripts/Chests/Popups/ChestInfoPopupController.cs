@@ -137,10 +137,17 @@ public class ChestInfoPopupController : MonoBehaviour
 
     private void OnUnlockNowClicked()
     {
-        confirmationPopupController.Show(
-            "Do you want to unlock now for " + chestController.GetGemsNeededToOpen().ToString() + " gems?",
-            () => OnChestAction?.Invoke(ChestAction.UnlockNow, chestController.ChestSlotID),
-            () => confirmationPopupController.Hide());
+        if (GameService.Instance.PlayerController.GetGems() < chestController.GetGemsNeededToOpen())
+        {
+            GameService.Instance.UIService.WarningPopup.Show("Not enough gems", 1.0f);
+        }
+        else
+        {
+            confirmationPopupController.Show(
+                "Do you want to unlock now for " + chestController.GetGemsNeededToOpen().ToString() + " gems?",
+                () => OnChestAction?.Invoke(ChestAction.UnlockNow, chestController.ChestSlotID),
+                () => confirmationPopupController.Hide());
+        }
     }
 
     private void OnRevertForceUnlockClicked()

@@ -12,13 +12,13 @@ public class ChestForceUnlockCommand : ChestCommand
         chest.IsForceOpened = true;
         gems = chest.GetGemsNeededToOpen();
         timeRemaining = chest.GetTimeRemaining();
+        GameService.Instance.PlayerController.DeductGems(gems);
         chest.Unlock();
     }
 
     public override void Undo()
     {
-        //return gems
-        //set timer
+        GameService.Instance.PlayerController.AddGems(gems);
         chest.RevertForceUnlock(timeRemaining);
     }
 }

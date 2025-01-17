@@ -86,7 +86,14 @@ public class ChestSlotsController
                 break;
             case ChestAction.UnlockNow:
                 lastComand = new ChestForceUnlockCommand(chestSlots[chestSlotID]);
-                lastComand.Execute();
+                if(GameService.Instance.PlayerController.GetGems() < chestSlots[chestSlotID].GetGemsNeededToOpen())
+                {
+                    GameService.Instance.UIService.WarningPopup.Show("Not enough gems", 1.0f);
+                }
+                else
+                {
+                    lastComand.Execute();
+                }
                 break;
             case ChestAction.RevertForceUnlock:
                 if(lastComand != null && lastComand is ChestForceUnlockCommand)

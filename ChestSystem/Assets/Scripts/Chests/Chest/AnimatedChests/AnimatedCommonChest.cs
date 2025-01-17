@@ -8,12 +8,12 @@ public class AnimatedCommonChest : AnimatedChest
     [SerializeField] private Sprite UnlockedSprite;
     public override void ShowLocked()
     {
-        Debug.Log("ShowLocked");
+        ChestImage.sprite = LockedSprite;
     }
 
     public override void ShowUnlocked()
     {
-        Debug.Log("ShowUnlocked");
+        ChestImage.sprite = UnlockedSprite;
     }
 
     public override void ShowUnlocking()
