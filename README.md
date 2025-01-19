@@ -3,7 +3,7 @@
 A scalable game mechanic for in-game trading between player and the shop. 
 
 ### Gameplay demo
-
+https://github.com/user-attachments/assets/966ba0fd-18b7-40ee-a14b-3ea8836766d8
 
 ## Architecture overview
 ### Block diagram
