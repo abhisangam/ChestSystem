@@ -1,4 +1,4 @@
-using System.Collections;
+#nullable enable
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -86,7 +86,7 @@ public class ChestSlotsController
                 break;
             case ChestAction.UnlockNow:
                 lastComand = new ChestForceUnlockCommand(chestSlots[chestSlotID]);
-                if(GameService.Instance.PlayerController.GetGems() < chestSlots[chestSlotID].GetGemsNeededToOpen())
+                if(GameService.Instance.PlayerController.GetGems() < chestSlots[chestSlotID]?.GetGemsNeededToOpen())
                 {
                     GameService.Instance.UIService.WarningPopup.Show("Not enough gems", 1.0f);
                 }
@@ -112,7 +112,7 @@ public class ChestSlotsController
     private void OnChestCollected(int slotId, int coinReward, int gemReward)
     {
         chestRewardPopupController.Show(coinReward, gemReward);
-        chestSlots[slotId].DestroyView();
+        chestSlots[slotId]?.DestroyView();
         chestSlots[slotId] = null;
     }
 }
