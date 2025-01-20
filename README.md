@@ -1,6 +1,6 @@
-# TradingSystem
+# Chest System
 ### Summary
-A scalable game mechanic for in-game trading between player and the shop. 
+A scalable chest system similar to the one in Clash Royale
 
 ### Gameplay demo
 https://github.com/user-attachments/assets/966ba0fd-18b7-40ee-a14b-3ea8836766d8
@@ -10,7 +10,7 @@ https://github.com/user-attachments/assets/966ba0fd-18b7-40ee-a14b-3ea8836766d8
 ![Block diagram](./classDiagram/classDiagram.png)
 
 ### ChestSlotsController
-`ChestSlotsController` controls chest slots and managing chests in the chest slots alongside `ChestSlotsView`. Provides interfaces for other parts of the code for adding/removing chests and handling interactions with chest slots. Triggers popups for chest info or reward info. Also serves as a command invoker for `ChestCommand`s.
+`ChestSlotsController` controls chest slots and manages chests in the chest slots alongside `ChestSlotsView`. Provides interfaces for other parts of the code for adding/removing chests and handling interactions with chest slots. Triggers popups for chest info or reward info. Also serves as a command invoker for `ChestCommand`s.
 
 ### ChestController
 Manages the chest's appearnce with `ChestView` and contains the `ChestStateMachine`. Provides interfaces for managing chest states and handling user interactions with chests. It contains an instance of `ChestSO` scriptable object.
@@ -28,7 +28,7 @@ Abstract class that implements `ICommand` for chest related commands. `ChestColl
 Holds game's global config constants.
 
 ### UI service
-`UIService` class is a singleton that manages warning popups and game's main UI.
+`UIService` class manages warning popups and game's main UI.
 
 ### PlayerController
 `PlayerController` manages player's state and provides interfaces for managing player's resources.
